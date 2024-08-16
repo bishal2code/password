@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Sign Up | Password Saver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Container -->
+        <div class="loginsignup">
+            <!-- Left Sign In -->
+            
+
+            <!-- Right Sign In -->
+            <div class="signinOptions">
+                <!-- Form -->
+                <form method="post" id="signupOptions" action="">
+                    {% csrf_token %}
+                    <div class="headline">Sign Up</div>
+
+                    <label for="">Username</label>
+                    <input name="username" type="text">
+
+                    <label for="">Email</label>
+                    <input  name="email" type="email">
+
+                    <label for="">Password</label>
+                    <input  name="password" type="password">
+
+                    <labeL> Create Pin </label>
+                    <input  name="pin" type="number">
+
+                    
+                    <div class="error">
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="loginButton">
+                        <button>Sign Up</button>
+                    </div>
+                </form>
+                <!-- Form Request -->
+                <div id="signupRequest" class="formRequest ">
+                    <div class="texts">
+                        <div class="logo">
+                            <div class="img"><img src="" alt=""></div>
+                        </div>
+                        <div class="mainText">
+                            Hello,Friend!
+                        </div>
+
+                        <div class="describe">
+                            Enter your Personla Details and continue journey with Us.
+
+                            <div class="requestButton">
+                                <a href="{% url 'loginPage' %}">Sign In</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+        <!-- Mobile Responsive -->
+        <div class="mobileLogin">
+            <div class="mobileOption">
+                
+                <div id="MobileSignup" class="signInMobile bottomtotop">
+                    <form method="post" action="">
+                        <div class="headline">Sign Up</div>
+                            {% csrf_token %}
+                            <label for="">Username</label>
+                            <input type="text">
+
+                            <label for="">Email</label>
+                            <input value="bishaldhakalinfo@gmail.com" type="email">
+
+                            <label for="">Password</label>
+                            <input type="password">
+
+                            <labeL> Create Pin </label>
+                            <input type="number">
+
+                            <div class="error">
+                                Username Exists
+                            </div>
+                            <div class="loginButton">
+                                <button>Sign Up</button>
+                            </div>
+                    </form>
+                    <div class="or">
+                        Or
+                    </div>
+                    <div class="signUpM">
+                        <a href="{% url 'loginPage' %}">Sign In</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+
+        <script>
+            // Title
+
+
+            
+
+            // Default
+            title.innerHTML = "Sign In | Passowrd Manager"
+
+            
+
+            
+
+            // Respomsive
+            function mobileChange(){
+                if(mobileSignInOption.style.display == "block"){
+                    mobileSignInOption.style.display = "none"
+                    mobileSignUpOption.style.display = "block"
+                    title.innerHTML = "Sign Up | Passowrd Manager"
+                }
+                else{
+                    mobileSignInOption.style.display = "block"
+                    mobileSignUpOption.style.display = "none"
+                    title.innerHTML = "Sign In | Passowrd Manager"
+                }
+            }
+            
+        </script>
+    
+</body>
+
+</html>

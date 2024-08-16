@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(230, 251, 249);
+    }
+    .container form{
+        width: 35%;
+        padding: 20px;
+        background-color: white;
+    }
+    .container .title{
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+        margin: 15px 0px;
+    }
+    .container .emailSentTo{
+        font-size: 20px;
+        margin: 10px 0px;
+        margin-left: 3%;
+    }
+    .container form input{
+        font-size: 20px;
+        width: 87%;
+        margin: 5px 3%;
+        height: 30px;
+        padding: 3px 5%;
+        gap: 10px;
+    }
+    .container .error{
+        margin: 3px 0px;
+        margin-left: 3%;
+        font-size: 18px;
+        color: red;
+    }
+    .actionButtons{
+        width: 100%;
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .actionButtons button,.actionButtons a{
+        width: 30%;
+        font-size: 20px;
+        height: 35px;
+        border: 2px solid #f95230;
+        transition: 0.1s;
+        background-color: #f95230;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+    .actionButtons button:hover{
+        background-color: transparent;
+    }
+    .actionButtons a{
+        background-color: rgba(0, 0, 0, 0);
+        color: #f95230;
+        transition: 0.1s;
+        border: 2px solid black;
+    }
+    .actionButtons a:hover{
+        background-color: black;
+    }
+    @media only screen and (max-width:1080px){
+        .container form{
+            width: 45%;
+        }
+    }
+
+    @media only screen and (max-width:768px){
+        .container form{
+            width: 70%;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="title">
+                Delete {{name}}
+            </div>
+            <div class="emailSentTo">Enter Pin to Delete</div>
+            <input name="pin" type="number">
+            <div class="error">
+                {% if messages %}
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                {% endif %}
+            </div>
+            <div class="actionButtons">
+                <a href="{% url 'userPass' %}">Cancel</a>
+                <button type="submit">Delete</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

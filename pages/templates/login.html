@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Sign In | Password Saver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Container -->
+        <div class="loginsignup">
+            <!-- Left Sign In -->
+            <div class="signinOptions ">
+                <!-- Form -->
+                <form method="post" id="signinOptions" action="">
+                    <div class="headline">Sign In</div>
+                    {% csrf_token %}
+                    <label for="">Username</label>
+                    <input name="username" type="text">
+
+                    <label for="">Password</label>
+                    <input name="password" type="password">
+
+                    <div class="error">
+                        {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="loginButton">
+                        <button>Sign In</button>
+                    </div>
+                </form>
+                <!-- Form Request -->
+                <div id="signinRequest" class="formRequest">
+                    <div class="texts">
+                        <div class="logo">
+                            <div class="img"><img src="" alt=""></div>
+                        </div>
+                        <div class="mainText">
+                            Welcome Back!
+                        </div>
+
+                        <div class="describe">
+                            To keep connected with us please login with your personal Infomation.
+                        </div>
+
+                        <div class="requestButton">
+                            <a href="{% url 'signup' %}">Sign In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+        <!-- Mobile Responsive -->
+        <div class="mobileLogin">
+            <div class="mobileOption">
+                <div id="MobileSignin" class="signInMobile bottomtotop">
+                    <form method="post" action="">
+                        <div class="headline">Sign In</div>
+                            {% csrf_token %}
+                            <label for="">Username</label>
+                            <input name="username" type="text">
+
+                            <label for="">Password</label>
+                            <input name="password" type="password">
+
+                            <div class="error">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="loginButton">
+                                <button>Sign In</button>
+                            </div>
+                    </form>
+                    <div class="or">
+                        Or
+                    </div>
+                    <div class="signUpM">
+                        <a href="{% url 'signup' %}">Sign Up</a>
+                    </div>
+                </div>
+               
+                
+            </div>
+        </div>
+    
+
+        <script>
+            // Title
+
+            
+            
+        </script>
+    
+</body>
+
+</html>
